@@ -1,19 +1,21 @@
 public class UserType {
 
-    private String name;
-    private int price;
-    private String description;
-
-    public MenuItem (String name, int price, String description) {
-        this.name = name;
-        this.price = price;
-        this.description = description;
+    public enum UserType {
+        NATIONAL_MERIT(0.20), //국가유공자
+        MILITARY(0.10),       // 군인
+        STUDENT(0.03),        // 학생
+        NORMAL(0.00);         // 일반
     }
 
-    public String getName() {return this.name;}
+    private final double discountRate;
 
-    public int getPrice() {return this.price;}
+    UserType(double discountRate) {
+        this.discountRate = discountRate;
+    }
 
-    public String getDescription() {return this.description;}
+    public double getDiscountRate() {
+        return discountRate;
+    }
 
 }
+
