@@ -1,17 +1,20 @@
-public class Menu {
-    private String name;
-    private int price;
-    private String description;
+import java.util.List;
 
-    public MenuItem (String name, int price, String description) {
+public class Menu {
+
+    private final String name;
+    private final List<MenuItem> menuItems;
+
+    public Menu(String name, List<MenuItem> menuItems) {
         this.name = name;
-        this.price = price;
-        this.description = description;
+        this.menuItems = menuItems;
     }
 
-    public String getName() {return this.name;}
+    public String getName() {
+        return name;
+    }
 
-    public int getPrice() {return this.price;}
-
-    public String getDescription() {return this.description;}
+    public List<MenuItem> getMenuItems() {
+        return menuItems;
+    }
 }
