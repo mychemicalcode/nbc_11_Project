@@ -1,5 +1,3 @@
-package cart;
-
 import java.awt.*;
 import java.util.Map;
 
@@ -27,7 +25,7 @@ public class CartService {
     public void displayCartItems() {
         Map<MenuItem, Integer> cartItems = cart.getCartItems();
         if (cartItems.isEmpty()) {
-            System.out.println("장바구니에 아무것도 없습니다.");
+            System.out.println("장바구니가 비었습니다.");
             return;
         }
         cartItems.forEach((item, count) ->
