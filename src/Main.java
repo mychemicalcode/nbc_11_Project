@@ -1,15 +1,49 @@
-//TIP 코드를 <b>실행</b>하려면 <shortcut actionId="Run"/>을(를) 누르거나
-// 에디터 여백에 있는 <icon src="AllIcons.Actions.Execute"/> 아이콘을 클릭하세요.
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-        //TIP 캐럿을 강조 표시된 텍스트에 놓고 <shortcut actionId="ShowIntentionActions"/>을(를) 누르면
-        // IntelliJ IDEA이(가) 수정을 제안하는 것을 확인할 수 있습니다.
-        System.out.printf("Hello and welcome!");
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP <shortcut actionId="Debug"/>을(를) 눌러 코드 디버그를 시작하세요. 1개의 <icon src="AllIcons.Debugger.Db_set_breakpoint"/> 중단점을 설정해 드렸습니다
-            // 언제든 <shortcut actionId="ToggleLineBreakpoint"/>을(를) 눌러 중단점을 더 추가할 수 있습니다.
-            System.out.println("i = " + i);
-        }
+        Menu burgers = new Menu("Burgers",
+                new ArrayList<>(
+                        List.of(
+                                new MenuItem("ShackBurger", 6.9, "토마토, 양상추, 쉑소스가 토핑된 치즈버거"),
+                                new MenuItem("SmokeShack", 8.9, "베이컨, 체리 페퍼에 쉑소스가 토핑된 치즈버거"),
+                                new MenuItem("Cheeseburger", 5.4, "비프패티를 기반으로 야채가 들어간 기본버거" )
+
+                        )
+                )
+        );
+
+        Menu drinks = new Menu("Drinks",
+            new ArrayList<>(
+                    List.of(
+                            new MenuItem("Coke", 1.5, "콜라"),
+                            new MenuItem("Sprite", 1.5, "스프라이트"),
+                            new MenuItem("Fanta", 1.5, "환타"),
+                            new MenuItem("Lemonade", 2.0, "레몬에이드")
+                    )
+            )
+        );
+
+        Menu desserts = new Menu("Desserts",
+            new ArrayList<>(
+                    List.of(
+                            new MenuItem("ShackSundae", 3.5, "초코, 바닐라 아이스크림에 월넛, 쉑소스가 들어간 선데이"),
+                            new MenuItem("ShackShake", 4.0, "초코, 바닐라, 카라멜 세가지 맛 중 선택 가능한 밀크쉐이크")
+                    )
+            )
+        );
+
+        Scanner sc = new Scanner(System.in);
+
+        Cart cart = new Cart();
+        Kiosk kiosk = new Kiosk(List.of(burgers, drinks, desserts));
+
+        CartService cartService = new CartService(cart);
+        KioskService kioskService = new KioskService(sc, kiosk, cartService);
+
+        kioskService.start();
     }
 }
