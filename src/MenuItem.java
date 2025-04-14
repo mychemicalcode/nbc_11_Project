@@ -1,5 +1,3 @@
-package Menu;
-
 public class MenuItem {
 
     private final String name;
