@@ -1,4 +1,3 @@
-import java.awt.*;
 import java.util.List;
 import java.util.Scanner;
 
@@ -19,8 +18,8 @@ public class KioskService {
         while (true) {
             System.out.println("\n[메인메뉴]");
             List<Menu> menus = kiosk.getMenus();
-            for (int i = 0; i < menu.size(); i++) {
-                System.out.println((i + 1) + ". " + menus.get(i).getName);
+            for (int i = 0; i < menus.size(); i++) {
+                System.out.println((i + 1) + ". " + menus.get(i).getName());
             }
             System.out.println("0. 종료");
 
