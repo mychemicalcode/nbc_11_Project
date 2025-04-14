@@ -1,4 +1,4 @@
-import java.sql.Array;
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -18,7 +18,7 @@ public class Main {
         );
 
         Menu drinks = new Menu("Drinks",
-            new Array<>(
+            new ArrayList<>(
                     List.of(
                             new MenuItem("Coke", 1.5, "콜라"),
                             new MenuItem("Sprite", 1.5, "스프라이트"),
@@ -43,7 +43,7 @@ public class Main {
         Kiosk kiosk = new Kiosk(List.of(burgers, drinks, desserts));
 
         CartService cartService = new CartService(cart);
-        KioskService kioskService = new KioskService(sc, kiosk, cartService)
+        KioskService kioskService = new KioskService(sc, kiosk, cartService);
 
         kioskService.start();
     }

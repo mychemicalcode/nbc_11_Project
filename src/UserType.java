@@ -1,11 +1,9 @@
-public class UserType {
-
     public enum UserType {
-        NATIONAL_MERIT(0.20), //국가유공자
-        MILITARY(0.10),       // 군인
+        NATIONAL_MERIT(0.10), //국가유공자
+        MILITARY(0.05),       // 군인
         STUDENT(0.03),        // 학생
         NORMAL(0.00);         // 일반
-    }
+
 
     private final double discountRate;
 
@@ -18,3 +16,4 @@ public class UserType {
     }
 
 }
+
